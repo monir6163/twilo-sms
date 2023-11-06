@@ -3,12 +3,11 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const app = express();
 dotenv.config();
-
 let fromPhoneNumber = process.env.FROM_PHONE_NUMBER;
 const accountSid = process.env.ACCOUNT_SID;
 const authToken = process.env.AUTH_TOKEN;
-
 const client = require("twilio")(accountSid, authToken);
+
 app.use(bodyParser.json());
 
 app.post("/send-sms", (req, res) => {
